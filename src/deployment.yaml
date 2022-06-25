@@ -23,7 +23,7 @@ spec:
             - containerPort: 3500
               protocol: TCP
       imagePullSecrets:
-        - name: acrcredentials
+        - name: <+artifact.imagePullSecret>
 ---
 apiVersion: v1
 kind: Service
