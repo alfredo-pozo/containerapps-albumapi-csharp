@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+  labels:
+    app: albumapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: webapp
+  template:
+    metadata:
+      labels:
+        app: albumapi
+        service: webapp
+    spec:
+      containers:
+        - name: webapp
+          image: {{.Values.image}}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3500
+              protocol: TCP
+      imagePullSecrets:
+        - name: acrcredentials
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+  labels:
+    app: albumapi
+    service: webapp
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 81
+      targetPort: 3500
+      protocol: TCP
+  selector:
+    service: webapp
