@@ -33,6 +33,10 @@ jobs:
           run: |
             chmod +x $GITHUB_WORKSPACE/.github/scripts/bash/GetSecretsFromKeyVault.sh
             $GITHUB_WORKSPACE/.github/scripts/bash/GetSecretsFromKeyVault.sh ${{ env.keyvaultName }} "${{ env.secretNames }}"
+      -
+        name: Test Outputs
+        run:
+          echo "outputs ${{ steps.get-secrets.outputs.MONGOPASSWORD }} , ${{ steps.get-secrets.outputs.SQLPASSWORD }}" 
               
           # with:
           #  inlineScript: |
