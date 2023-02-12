@@ -30,7 +30,7 @@ jobs:
           run: |
               echo $(ls $GITHUB_WORKSPACE)
               # chmod +x ./.github/scripts/bash/GetSecretsFromKeyVault.sh
-              sh ./.github/scripts/bash/GetSecretsFromKeyVault.sh ${{ env.keyvaultName }} ${{ env.secretNames }}
+              sh ./.github/scripts/bash/GetSecretsFromKeyVault.sh ${{ env.keyvaultName }} "${{ env.secretNames }}"
 
           # with:
           #  inlineScript: |
