@@ -28,8 +28,7 @@ jobs:
             keyvaultName: 'testkvapozo'
             secretNames: "MongoPassword SQLPassword"
           run: |
-              salida=$(ls $GITHUB_WORKSPACE)
-              echo "${salida}"
+            chmod +* $GITHUB_WORKSPACE.github/scripts/bash/GetSecretsFromKeyVault.sh
               
           # with:
           #  inlineScript: |
