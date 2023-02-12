@@ -29,15 +29,23 @@ jobs:
           id: get-secrets
           env:
             keyvaultName: 'testkvapozo'
-            secretNames: "MongoPassword SQLPassword"
+            secretNames: "ACR-USERNAME ACR-SECRET"
           run: |
             chmod +x $GITHUB_WORKSPACE/.github/scripts/bash/GetSecretsFromKeyVault.sh
             $GITHUB_WORKSPACE/.github/scripts/bash/GetSecretsFromKeyVault.sh ${{ env.keyvaultName }} "${{ env.secretNames }}"
       -
         name: Test Outputs
         run:
-          echo "outputs ${{ steps.get-secrets.outputs.MONGOPASSWORD }} , ${{ steps.get-secrets.outputs.SQLPASSWORD }}" 
-              
+          echo "outputs ${{ steps.get-secrets.outputs.ACR-USERNAME }} , ${{ steps.get-secrets.outputs.ACR-SECRET }}" 
+      -
+        name: Login to ACR QA
+        uses: docker/login-action@v2
+        with:
+          registry: acrtestapozo.azurecr.io
+          username: ${{ steps.get-secrets.outputs.ACR-USERNAME }} 
+          password: ${{ steps.get-secrets.outputs.ACR-SECRET }}
+          
+          
           # with:
           #  inlineScript: |
           #    chmod +x $GITHUB_WORKSPACE/../tools/utils/scripts/bash/GetSecretsFromKeyVault.sh
