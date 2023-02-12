@@ -31,7 +31,7 @@ jobs:
             keyvaultName: 'testkvapozo'
             secretNames: "MongoPassword SQLPassword"
           run: |
-            chmod +x $GITHUB_WORKSPACE/.github/scripts/bash/GetSecretsFromKeyVault.sh
+            sh $GITHUB_WORKSPACE/.github/scripts/bash/GetSecretsFromKeyVault.sh ${{ env.keyvaultName }} "${{ env.secretNames }}"
               
           # with:
           #  inlineScript: |
