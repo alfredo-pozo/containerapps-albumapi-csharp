@@ -24,8 +24,9 @@ jobs:
           name: Azure Cli 
           uses: azure/CLI@v1
           id: get-secrets
-          with:
+          env:
             keyvaultName: 'testkvapozo'
             secretNames: "MongoPassword SQLPassword"
+          with:
             inlineScript: |
-              sh $GITHUB_WORKSPACE/tools/utils/scripts/bash/GetSecretsFromKeyVault.sh ${{ keyvaultName }} ${{ secretNames }}
+              sh $GITHUB_WORKSPACE/tools/utils/scripts/bash/GetSecretsFromKeyVault.sh ${{ env.keyvaultName }} ${{ env.secretNames }}
