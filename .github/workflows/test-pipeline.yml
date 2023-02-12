@@ -28,7 +28,7 @@ jobs:
             keyvaultName: 'testkvapozo'
             secretNames: "MongoPassword SQLPassword"
           run: |
-              salida=ls $GITHUB_WORKSPACE
+              salida=$(ls $GITHUB_WORKSPACE)
               echo "${salida}"
               
           # with:
