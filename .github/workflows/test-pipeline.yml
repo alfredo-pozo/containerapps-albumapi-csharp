@@ -29,4 +29,4 @@ jobs:
             secretNames: "MongoPassword SQLPassword"
           with:
             inlineScript: |
-              sh $GITHUB_WORKSPACE/tools/utils/scripts/bash/GetSecretsFromKeyVault.sh ${{ env.keyvaultName }} ${{ env.secretNames }}
+              sh ./tools/utils/scripts/bash/GetSecretsFromKeyVault.sh ${{ env.keyvaultName }} ${{ env.secretNames }}
