@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "albumapi_csharp", "src\albumapi_csharp.csproj", "{38C626D6-5850-42D5-845F-83A116814FFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38C626D6-5850-42D5-845F-83A116814FFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38C626D6-5850-42D5-845F-83A116814FFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38C626D6-5850-42D5-845F-83A116814FFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38C626D6-5850-42D5-845F-83A116814FFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26A4CB6E-090C-4CD5-8901-D90D0EF20713}
+	EndGlobalSection
+EndGlobal
