@@ -13,6 +13,7 @@ for i in "${secretArray[@]}"
 do
     valueArray[${i}]=$(az keyvault secret show --vault-name ${keyvaultName} --name ${i} -o tsv --query "value")
 
+    echo "::add-mask::${valueArray[$i]}"
     echo "${i}=${valueArray[$i]}" >> $GITHUB_OUTPUT
     # echo "${secretArray[${i}]}"
     # echo "${valueArray[$i]}"
